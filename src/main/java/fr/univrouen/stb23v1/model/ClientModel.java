@@ -4,6 +4,7 @@ package fr.univrouen.stb23v1.model;
 import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.dataformat.xml.annotation.*;
+import fr.univrouen.stb23v1.entities.Client;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,13 @@ public class ClientModel {
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "tel")
     public String[] tel;
+
+    public ClientModel(Client client) {
+        entity = client.getEntity();
+        person = new PersonModel(client.getFirstname(), client.getGender().name(), client.getLastname());
+        setTel(client.getPhones());
+        setMail(client.getMails());
+    }
 
     public void setTel(String tel) {
         this.tel = tel == null ? null : tel.split(";");

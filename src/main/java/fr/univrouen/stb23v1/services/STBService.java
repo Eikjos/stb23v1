@@ -41,6 +41,7 @@ public class STBService {
             return null;
         }
         var v = mapper.map(stb.get(), DetailSTBModel.class);
+        v.setClient(new ClientModel(stb.get().getClient()));
         var features = stb.get().getFeatures();
         v.setFeature(features.stream().map(FeatureModel::new).toList());
         v.setMember(stb.get().getTeam().stream().map(MemberModel::new).toList());

@@ -9,8 +9,6 @@ import fr.univrouen.stb23v1.entities.Feature;
 import fr.univrouen.stb23v1.entities.Member;
 import fr.univrouen.stb23v1.entities.STB;
 import fr.univrouen.stb23v1.model.DetailSTBModel;
-import fr.univrouen.stb23v1.model.InsertStbModel;
-import fr.univrouen.stb23v1.model.STBModel;
 import fr.univrouen.stb23v1.model.XMLResponseModel;
 import fr.univrouen.stb23v1.services.ClientService;
 import fr.univrouen.stb23v1.services.FeatureService;
@@ -18,15 +16,12 @@ import fr.univrouen.stb23v1.services.MemberService;
 import fr.univrouen.stb23v1.services.STBService;
 import fr.univrouen.stb23v1.util.Status;
 import fr.univrouen.stb23v1.util.XMLValidator;
-import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Unmarshaller;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.StringReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -100,12 +95,12 @@ public class CRUDController {
         var stb = stbService.findByIdEntity(id);
         if (stb.isEmpty()) {
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(
-                    new XMLResponseModel(null, Status.ERROR, null)
+                    new XMLResponseModel(null, Status.ERROR, "La spécification n'existe pas")
             );
         } else {
             stbService.delete(stb.get());
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(
-                    new XMLResponseModel(stb.get().getId(), Status.DELETED, null)
+                    new XMLResponseModel(stb.get().getId(), Status.DELETED, "Le spécification a été supprimé avec succès")
             );
         }
 

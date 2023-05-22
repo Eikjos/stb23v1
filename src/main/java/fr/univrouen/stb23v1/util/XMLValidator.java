@@ -1,5 +1,7 @@
 package fr.univrouen.stb23v1.util;
 
+import org.xml.sax.SAXException;
+
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
@@ -23,6 +25,8 @@ public class XMLValidator {
             validator.validate(s);
 
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
         return !handler.hasError();
     }
