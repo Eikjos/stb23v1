@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionnaire des versions de STB</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <header>
+        <h1>Gestionnaire de STB (Spécification Technique des Besoins)</h1>
+        <img src="/logo.png" alt="Logo de l'université de Rouen" />
+    </header>
+    <main>
+        <div>
+            <h2>Documentation de l'API</h2>
+            <table>
+                <thead>
+                <tr>
+                    <td>METHOD</td>
+                    <td>ROUTE</td>
+                    <td>DESCRIPTION</td>
+                    <td>FORMAT ATTENDU</td>
+                    <td>FORMAT DE RETOUR</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/stb23/resume/xml</td>
+                    <td>Affiche la liste des spécifications stockées</td>
+                    <td>Pas de format attendu</td>
+                    <td>Format XML</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/stb23/resume</td>
+                    <td>Affiche la liste des spécifications stockées</td>
+                    <td>Pas de format attendu</td>
+                    <td>Format HTML</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/stb23/xml/{id}</td>
+                    <td>Affiche le contenu complet de la spécification dont l'identifiant est {id}</td>
+                    <td>ID d'une spécifications</td>
+                    <td>Format XML</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/stb23/html/{id}</td>
+                    <td>Affiche le contenu complet de la spécification dont l'identifiant est {id}</td>
+                    <td>ID d'une spécifications</td>
+                    <td>Format HTML</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>stb23/insert</td>
+                    <td>Permet d'insérer une spécification</td>
+                    <td>Format XML, décrivant la spécification conforme au schéma xsd</td>
+                    <td>Format XML, avec le status et l'id de la nouvelle spécification</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>stb23/delete/{id}</td>
+                    <td>Permet de supprimer une spécification</td>
+                    <td>ID d'une spécification</td>
+                    <td>Format XML, avec le status et l'id de la spécification supprimé</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <p>Projet Langage WEB - 2023 - Université de Rouen</p>
+    </footer>
+</body>
+</html>
