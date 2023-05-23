@@ -1,0 +1,22 @@
+table {
+    border: solid 1px gray;
+    border-collapse: collapse;
+    margin: 15px auto;
+}
+
+thead {
+    font-weight: bold;
+}
+
+tr {
+    border: solid 1px gray;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    width: 15%;
+    height: 100px;
+    border: solid 1px gray;
+    border-collapse: collapse;
+}

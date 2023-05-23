@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Suppression STB</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/delete.css" type="text/css" />
+    </head>
+    <body>
+        <main>
+            <h1>Suppresion Spécification</h1>
+            <h2 th:if="${response.status.name() == 'ERROR'}">Echec de la suppresion</h2>
+            <h2 th:if="${response.status.name() == 'DELETED'}">Suppresion réussie</h2>
+            <p th:text="${response.message}" />
+            <a href="/stb23">
+                <button>Retour à la liste</button>
+            </a>
+        </main>
+    </body>
+</html>

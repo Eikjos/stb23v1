@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail spécification technique</title>
+    <link rel="stylesheet" href="/css/detail.css" type="text/css" />
+</head>
+<body>
+    <div style="display: flex;justify-content: center;align-items: baseline">
+        <h1 th:text="${stb.title}" />
+        <p th:text="'(' + ${stb.version} + ')'" style="margin-left: 10px"/>
+    </div>
+    <h2>Client :</h2>
+    <p th:text="${stb.client.entity ?: ''} + ' (' + ${stb.client.person.gender}
+    + ' ' + ${stb.client.person.lastname == null ? '' : stb.client.person.lastname}
+    + ${stb.client.person.firstname == null ? '' : ' ' + stb.client.person.firstname} + ')'"/>
+    <p th:if="${stb.client.mail != null}" th:text="${#strings.listJoin(stb.client.mail, ' - ')}"/>
+    <p th:if="${stb.client.tel != null}" th:text="${#strings.listJoin(stb.client.tel, ' - ')}"/>
+    <div style="display: flex;align-items: baseline">
+        <h2>Date :</h2>
+        <p th:text="${#dates.format(stb.date, 'dd/MM/yyyy')}" style="margin-left: 10px"/>
+    </div>
+    <h2>Description : </h2>
+    <p th:text="${stb.description}" />
+    <h2>Membre de l'équipe : </h2>
+    <ul>
+        <li th:each="member : ${stb.member}">
+            <p th:text="${member.person.gender}
+    + ' ' + ${member.person.lastname == null ? '' : member.person.lastname}
+    + ${member.person.firstname == null ? '' : ' ' + member.person.firstname}
+    + ${member.mail == null ? '' : ' (' + member.mail + ')'} + ' - ' + ${#strings.listJoin(member.function, ' - ')}"/>
+        </li>
+    </ul>
+    <h2 style="text-align: center">Fonctionnalités :</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Numéro</td>
+                <td>Nom</td>
+                <td>Description</td>
+                <td>Date</td>
+                <td>Priorité</td>
+                <td>Commentaire</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="feature : ${stb.feature}">
+                <td th:text="${feature.section} + '.' + ${feature.number}"/>
+                <td th:text="${feature.name}" />
+                <td th:text="${feature.description}" />
+                <td th:text="${#dates.format(feature.delivery, 'dd-MM-yyyy')}" />
+                <td th:text="${feature.priority}" />
+                <td th:text="${feature.comment?: ''}" />
+            </tr>
+        </tbody>
+    </table>
+    <footer>
+        <p style="text-align: center">Projet Langage WEB - 2023 - Université de Rouen</p>
+    </footer>
+</body>
+</html>
