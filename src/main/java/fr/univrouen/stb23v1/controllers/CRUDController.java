@@ -46,11 +46,11 @@ public class CRUDController {
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             DetailSTBModel stb = mapper.readValue(xml, DetailSTBModel.class);
             // vérifier que le titre, la version  et la date ne correspond pas déjà à une STB
-            SimpleDateFormat formatter =new SimpleDateFormat("yyyy-MM-DD");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date date = formatter.parse(stb.getDate());
             if (stbService.isPresent(stb.getTitle(), date, stb.getVersion())) {
                 return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(
-                        new XMLResponseModel(null, Status.DUPLICATED, null)
+                        new XMLResponseModel(null, Status.DUPLICATED, "La spécification renseigné est déjà présent")
                 );
             }
             var client = new Client(stb.getClient());
@@ -85,7 +85,7 @@ public class CRUDController {
         } else {
             // Sinon renvoyer une erreur INVALIDE
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(
-                    new XMLResponseModel(null, Status.INVALID, null)
+                    new XMLResponseModel(null, Status.INVALID, "Le flux XML est invalide par rapport au schéma XSD")
             );
         }
     }

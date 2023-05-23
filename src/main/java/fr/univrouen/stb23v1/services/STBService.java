@@ -49,7 +49,7 @@ public class STBService {
     }
 
     public boolean isPresent(String title, Date date, double version) {
-        return stbRepository.findByTitleAndAndDateAndVersion(title, date, version)
+        return stbRepository.findByTitleAndDateAndVersion(title, date, version)
                 .isPresent();
     }
 

@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface StbRepository extends JpaRepository<STB, Long> {
-    Optional<STB> findByTitleAndAndDateAndVersion(String title, Date date, double version);
+    Optional<STB> findByTitleAndDateAndVersion(String title, Date date, double version);
 
 }
