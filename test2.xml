@@ -1,0 +1,33 @@
+<p:stb xmlns:p="http://univrouen.fr/stb23" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://univrouen.fr/  stb23.tp1.xsd">
+    <title>test min</title>
+    <description>description min</description>
+    <version>1.8</version>
+    <date>2023-05-11</date>
+    <client>
+        <entity>test min</entity>
+        <person lastname="Dupont">Antoine</person>
+        <tel>0608836977</tel>
+    </client>
+    <team>
+        <member>
+            <person lastname="Hamelin">Thomas</person>
+            <mail>hamelin.thomas@gmail.com</mail>
+            <function>dev</function>
+        </member>
+        <member>
+            <person lastname="Ficker">Lucas</person>
+            <mail>ficker.lucas@gmail.com</mail>
+            <function>dev</function>
+        </member>
+    </team>
+    <features>
+        <feature name="fonction 1" section="3" number="1">
+            <description>description</description>
+            <priority>2</priority>
+        </feature>
+        <feature name="fonction 2" section="3" number="1">
+            <description>description 3</description>
+            <priority>2</priority>
+        </feature>
+    </features>
+</p:stb>

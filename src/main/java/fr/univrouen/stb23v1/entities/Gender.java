@@ -17,6 +17,9 @@ public enum Gender {
 
     public static Gender titleToGender(String title) {
         Gender gender = Gender.M;
+        if (title == null) {
+            return null;
+        }
         switch (title) {
             case "M.":
                 gender = Gender.M;

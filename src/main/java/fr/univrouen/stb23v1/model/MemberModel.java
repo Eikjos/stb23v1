@@ -27,7 +27,7 @@ public class MemberModel {
     private String[] function;
 
     public MemberModel(Member member) {
-        person = new PersonModel(member.getFirstname(), member.getGender().name(), member.getLastname());
+        person = new PersonModel(member.getFirstname(), member.getGender() == null ? null : member.getGender().name(), member.getLastname());
         mail = member.getMail();
         function = member.getFunctions();
     }

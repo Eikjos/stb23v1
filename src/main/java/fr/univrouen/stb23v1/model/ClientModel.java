@@ -32,7 +32,7 @@ public class ClientModel {
 
     public ClientModel(Client client) {
         entity = client.getEntity();
-        person = new PersonModel(client.getFirstname(), client.getGender().name(), client.getLastname());
+        person = new PersonModel(client.getFirstname(), client.getGender() == null ? null : client.getGender().name(), client.getLastname());
         setTel(client.getPhones());
         setMail(client.getMails());
     }

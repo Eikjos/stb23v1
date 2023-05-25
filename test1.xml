@@ -1,0 +1,42 @@
+<p:stb xmlns:p="http://univrouen.fr/stb23" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://univrouen.fr/  stb23.tp1.xsd">
+    <title>test 3</title>
+    <description>description 3</description>
+    <version>1.7</version>
+    <date>2023-05-21</date>
+    <client>
+        <entity>test</entity>
+        <person gender="Miss" lastname="Dupont">Antoine</person>
+        <tel>0608836977</tel>
+    </client>
+    <team>
+        <member>
+            <person gender="Miss" lastname="Hamelin">Thomas</person>
+            <mail>hamelin.thomas@gmail.com</mail>
+            <function>dev</function>
+            <function>scrum</function>
+        </member>
+        <member>
+            <person gender="Miss" lastname="Ficker">Lucas</person>
+            <mail>ficker.lucas@gmail.com</mail>
+            <function>dev</function>
+        </member>
+        <member>
+            <person gender="Miss" lastname="biojout">Kevin</person>
+            <mail>biojout.kevin@gmail.com</mail>
+            <function>dev</function>
+            <function>product owner</function>
+        </member>
+    </team>
+    <features>
+        <feature name="fonction 1" section="3" number="1">
+            <description>description</description>
+            <priority>2</priority>
+            <delivery>2023-05-10</delivery>
+            <comment>comment</comment>
+        </feature>
+        <feature name="fonction 2" section="3" number="1">
+            <description>description 3</description>
+            <priority>2</priority>
+        </feature>
+    </features>
+</p:stb>

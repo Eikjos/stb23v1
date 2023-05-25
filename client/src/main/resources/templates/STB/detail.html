@@ -11,8 +11,8 @@
         <p th:text="'(' + ${stb.version} + ')'" style="margin-left: 10px"/>
     </div>
     <h2>Client :</h2>
-    <p th:text="${stb.client.entity ?: ''} + ' (' + ${stb.client.person.gender}
-    + ' ' + ${stb.client.person.lastname == null ? '' : stb.client.person.lastname}
+    <p th:text="${stb.client.entity ?: ''} + ' (' + ${stb.client.person.gender == null ? '' : stb.client.person.gender + ' '}
+    + ${stb.client.person.lastname == null ? '' : stb.client.person.lastname}
     + ${stb.client.person.firstname == null ? '' : ' ' + stb.client.person.firstname} + ')'"/>
     <p th:if="${stb.client.mail != null}" th:text="${#strings.listJoin(stb.client.mail, ' - ')}"/>
     <p th:if="${stb.client.tel != null}" th:text="${#strings.listJoin(stb.client.tel, ' - ')}"/>
@@ -25,7 +25,7 @@
     <h2>Membre de l'équipe : </h2>
     <ul>
         <li th:each="member : ${stb.member}">
-            <p th:text="${member.person.gender}
+            <p th:text="${member.person.gender == null ? '' : member.person.gender}
     + ' ' + ${member.person.lastname == null ? '' : member.person.lastname}
     + ${member.person.firstname == null ? '' : ' ' + member.person.firstname}
     + ${member.mail == null ? '' : ' (' + member.mail + ')'} + ' - ' + ${#strings.listJoin(member.function, ' - ')}"/>

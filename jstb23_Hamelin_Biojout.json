@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "11b4a36b-9d7c-49fc-80d3-3c64e032df56",
+		"name": "STB23",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25449458"
+	},
+	"item": [
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stb23/{id}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stb23",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RESUME HTML",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stb23/resume",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stb23",
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RESUME XML",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stb23/resume/xml",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stb23",
+						"resume",
+						"xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<p:stb xmlns:p=\"http://univrouen.fr/stb23\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://univrouen.fr/  stb23.tp1.xsd\">\n    <title>test 3</title>\n    <description>description 3</description>\n    <version>1.7</version>\n    <date>2023-05-21</date>\n    <client>\n        <entity>test</entity>\n        <person gender=\"Miss\" lastname=\"Dupont\">Antoine</person>\n        <tel>0608836977</tel>\n    </client>\n    <team>\n        <member>\n            <person gender=\"Miss\" lastname=\"Hamelin\">Thomas</person>\n            <mail>hamelin.thomas@gmail.com</mail>\n            <function>dev</function>\n            <function>scrum</function>\n        </member>\n        <member>\n            <person gender=\"Miss\" lastname=\"Ficker\">Lucas</person>\n            <mail>ficker.lucas@gmail.com</mail>\n            <function>dev</function>\n        </member>\n        <member>\n            <person gender=\"Miss\" lastname=\"biojout\">Kevin</person>\n            <mail>biojout.kevin@gmail.com</mail>\n            <function>dev</function>\n            <function>product owner</function>\n        </member>\n    </team>\n    <features>\n        <feature name=\"fonction 1\" section=\"3\" number=\"1\">\n            <description>description</description>\n            <priority>2</priority>\n            <delivery>2023-05-10</delivery>\n            <comment>comment</comment>\n        </feature>\n        <feature name=\"fonction 2\" section=\"3\" number=\"1\">\n            <description>description 3</description>\n            <priority>2</priority>\n        </feature>\n    </features>\n</p:stb>",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/stb23/insert",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stb23",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HTML GET BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stb23/html/{id}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stb23",
+						"stb23",
+						"html",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML GET BY ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stb23/xml/{id}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stb23",
+						"stb23",
+						"xml",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Help",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/help",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"help"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080"
+		}
+	]
+}
